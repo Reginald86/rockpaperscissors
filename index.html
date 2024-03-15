@@ -4,11 +4,26 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src = "script.js"></script>
+  <script src = "script.js" defer></script>
   <link rel ="stylesheet" href = "style.css">
   <title>Rock Paper Scissors</title>
 </head>
 <body>
-  
+  <h1>Welcome to a game of Rock Paper Scissors.  Win 5 rounds before the computer.</h1>
+  <div class = "container"> 
+    <button id="rock" class ="button">Rock</button>
+    <button id="paper" class ="button">Paper</button>
+    <button id="scissors" class ="button">Scissors</button>
+  </div>
+  <div class ="label_container">
+    <label for="result" class="label">Result: </label> <output id="results"  class="hello"></output><br>
+    <label for="roundsplayed" class="label">Round: </label> <output id="roundplays"  class="hello"></output><br>
+    <label for="computer" class="label">Computer wins:  </label> <output id="computer" class="hello"></output><br>
+    <label for="player" class="label">Player wins:  </label> <output id="player" class="hello"></output><br>
+    <label for="tie" class="label">Ties:   </label> <output id="tie" class = "hello"></output><br>
+</div>
+  <div class = "restart_container">
+    <button id ="restart">Restart</button>
+  </div>
 </body>
 </html>

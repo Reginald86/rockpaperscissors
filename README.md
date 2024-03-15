@@ -1,4 +1,4 @@
 ROCK PAPER SCISSORS 
 
-Player will be asked to select between rock, paper, or scissors.
-You must win 5 rounds before the computer to win.
+Win 5 rounds before the computer.  
+The Odin Project:  https://www.theodinproject.com/lessons/foundations-revisiting-rock-paper-scissors

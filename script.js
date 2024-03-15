@@ -1,62 +1,125 @@
-console.log("Welcome to a game of Rock Paper Scissors - Best of 5 rounds")
 
-const rounds = 5;
+const ROCK = document.querySelector("#rock")
+ROCK.addEventListener("click", rockClick);
 
-function getComputerChoice () {
-    let choice = Math.floor(Math.random () * 3);
-      if (choice === 0) {
-        return "rock";
-      } else if (choice === 1) {
-        return "paper";
-      } else {
-        return "scissors";
-      }
-    }
+function rockClick(){
+let result = playRound("rock", getComputerChoice());
+document.getElementById("results").innerHTML =  result;
+gameOver();
+} 
 
 
-function getPlayerChoice() {
-    let player = prompt("Choose between: rock, paper, scissors").toLowerCase();
-    return player;
-   }
 
-  
- function playGame(){
- for(let i = 0; i < rounds; i++){
-  let computerSelection = getComputerChoice();  
-  // putting computerSelection and playerSelection in the function block instead of globally ensures they are re-initialized every time.  Globally only happens once.
-  let playerSelection = getPlayerChoice();
-  console.log (playRound(playerSelection, computerSelection));
-  // if you use return instead of console.log - the function ends execution after the first return.  
- }
+const SCISSORS = document.querySelector("#scissors")
+SCISSORS.addEventListener("click", scissorsClick);
+
+  function scissorsClick(){
+  let result = playRound("scissors", getComputerChoice());
+  document.getElementById("results").innerHTML =  result;
+  gameOver();
+  } 
+
+
+const PAPER = document.querySelector("#paper")
+PAPER.addEventListener("click", paperClick);
+
+function paperClick() {
+let result = playRound("paper", getComputerChoice());
+document.getElementById("results").innerHTML =  result;
+gameOver();
+} 
+
+const RESTART = document.querySelector("#restart")
+RESTART.addEventListener("click", restart);
+function restart() {
+  ROCK.addEventListener("click", rockClick);
+  SCISSORS.addEventListener("click", scissorsClick);
+  PAPER.addEventListener("click", paperClick);
+  document.getElementById("results").innerHTML =  result = "";
+  document.getElementById("computer").innerHTML = computerScore = "";
+  document.getElementById("player").innerHTML = playerScore = "";
+  document.getElementById("tie").innerHTML = tie = "";
+  document.getElementById("roundplays").innerHTML = roundsplayed = "";
 }
- 
- 
- function playRound(playerSelection, computerSelection){
-   if(playerSelection === computerSelection) {
-    return "It's a tie"
-   } else if (playerSelection === "rock" && computerSelection === "scissors") {
-    return `You win! ${playerSelection} beats ${computerSelection}`;
-   } else if (playerSelection === "paper" && computerSelection === "rock") {
-    return `You win! ${playerSelection} beats ${computerSelection}`;
-   } else if (playerSelection === "scissors" && computerSelection === "paper") {
-    return `You win! ${playerSelection} beats ${computerSelection}`;
-   } else {
-    return `You Lose! ${computerSelection} beats ${playerSelection}`;
-   }
- }
+
+
+
+
+
+
+function getComputerChoice(){
+  const choices = ["rock", "paper", "scissors"];
+  let computerChoice = choices[Math.floor(Math.random() * 3)];
+  return computerChoice;
+}
+
+let roundsplayed = 0;
+let playerScore = 0;
+let computerScore = 0;
+let tie = 0;
+
+function playRound(playerSelection, computerSelection) {
+
+
+  if(playerSelection === computerSelection) {
+    roundsplayed++
+    tie++;
+    document.getElementById("roundplays").innerHTML = roundsplayed;
+    document.getElementById("tie").innerHTML = tie;
+    return "It's a tie";
+  } else if (
+    (playerSelection === "rock" && computerSelection === "scissors") ||
+    (playerSelection === "paper" && computerSelection === "rock") ||
+    (playerSelection === "scissors" && computerSelection === "paper")
+  ) {
+    roundsplayed++
+    playerScore++;
+    document.getElementById("roundplays").innerHTML = roundsplayed;
+    document.getElementById("player").innerHTML = playerScore;
+    return `Player wins! ${playerSelection} beats ${computerSelection}`;
+  } else {
+    roundsplayed++
+    computerScore++;
+    document.getElementById("roundplays").innerHTML = roundsplayed;
+    document.getElementById("computer").innerHTML = computerScore;
+    return `Computer wins! ${computerSelection} beats ${playerSelection}`;
+  }
+}
+
+
+function gameOver() {
+    if (playerScore === 5) {
+    let result = "Game over - Player wins! Click restart to play again.";
+    document.getElementById("results").innerHTML =  result;
+    stopPlay();
+      } else if (computerScore === 5) {
+        let result = "Game over - Computer wins! Click restart to play again.";
+        document.getElementById("results").innerHTML =  result;   
+        stopPlay();
+  }
+}
+
+
+function stopPlay(){
+  ROCK.removeEventListener("click", rockClick);
+  SCISSORS.removeEventListener("click", scissorsClick);
+  PAPER.removeEventListener("click", paperClick);
+} 
+
+function restart() {
+  ROCK.addEventListener("click", rockClick);
+  SCISSORS.addEventListener("click", scissorsClick);
+  PAPER.addEventListener("click", paperClick);
+  document.getElementById("results").innerHTML =  result = "";
+  document.getElementById("computer").innerHTML = computerScore = "";
+  document.getElementById("player").innerHTML = playerScore = "";
+  document.getElementById("tie").innerHTML = tie = ""; 
+  document.getElementById("roundplays").innerHTML = roundsplayed = ""; 
+}
   
 
-playGame()
- 
 
 
 
-
-
-
-
-
-
- 
 
 

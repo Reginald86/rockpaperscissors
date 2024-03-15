@@ -2,4 +2,55 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    font-family: monospace;
 }
+
+h1{
+    text-align: center;
+    color: black;
+    font-size: 19px;
+    margin-top: 27px;
+    margin-bottom: 27px;
+}
+
+.container{
+    padding: 20px;
+}
+
+.restart_container{
+    padding: 20px;
+}
+
+.label{
+    padding: 20px;
+}
+
+.button{
+  border: black 3px solid;
+  border-radius:13px;
+  padding:5px 10px;
+  margin:2px 0px;
+  width:100px;
+  height: 40px;
+  cursor:pointer;
+  background:lime;
+}
+
+.button:hover{
+    box-shadow:1px 1px 4px 0px black;
+}
+
+#restart {
+    border: lime 3px solid;
+    border-radius: 13px;
+    color: white;
+    padding:5px 10px;
+    margin:2px 0px;
+    width:100px;
+    height: 40px;
+    cursor:pointer;
+    background: black;
+    justify-content: center;
+    align-items: center;
+}
+
