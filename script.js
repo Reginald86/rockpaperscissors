@@ -64,7 +64,7 @@ function playRound(playerSelection, computerSelection) {
   if(playerSelection === computerSelection) {
     roundsplayed++
     tie++;
-    document.getElementById("roundplays").innerHTML = roundsplayed;
+    document.getElementById("roundplays").innerHTML = (roundsplayed +1);
     document.getElementById("tie").innerHTML = tie;
     return "It's a tie";
   } else if (
@@ -74,13 +74,13 @@ function playRound(playerSelection, computerSelection) {
   ) {
     roundsplayed++
     playerScore++;
-    document.getElementById("roundplays").innerHTML = roundsplayed;
+    document.getElementById("roundplays").innerHTML = (roundsplayed + 1);
     document.getElementById("player").innerHTML = playerScore;
     return `Player wins! ${playerSelection} beats ${computerSelection}`;
   } else {
     roundsplayed++
     computerScore++;
-    document.getElementById("roundplays").innerHTML = roundsplayed;
+    document.getElementById("roundplays").innerHTML = (roundsplayed + 1);
     document.getElementById("computer").innerHTML = computerScore;
     return `Computer wins! ${computerSelection} beats ${playerSelection}`;
   }
@@ -117,9 +117,6 @@ function restart() {
   document.getElementById("roundplays").innerHTML = roundsplayed = ""; 
 }
   
-
-
-
 
 
 
