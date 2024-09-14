@@ -1,0 +1,72 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    position: relative;
+    left: 30px;
+    top: 20px;
+    height: 100vh;
+    display: flex;
+    flex-flow: column;
+}
+
+#container{
+    display: flex;
+    gap: 20px;
+}
+
+/* Credits: freepik = rock; Freepik = paper; Gulraiz = scissors*/
+
+#rock, #paper, #scissors {
+    height: 75px;
+    width: 75px;
+}
+
+#rock:hover, #paper:hover, #scissors:hover{
+    height: 145px;
+    width: 145px;
+    padding: 5px;
+}
+
+
+button{
+    border: none;
+    height: 150px;
+    width: 150px;
+    background: transparent;
+}
+
+p{
+    font-weight: bolder;
+    line-height: 1.3;
+}
+
+#container2{
+    display: flex;
+    flex-flow: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 13px;
+}
+
+#container2 > button {
+    height: 45px;
+    width: 90px;
+    border-radius: 50px;
+    font-weight: bolder;
+    margin-left: 200px;
+    border: 2px solid black;
+    background-color: rgb(218, 215, 215);
+}
+
+#container2 > button:hover{
+    border: 3px red solid;
+    font-size: .9rem;
+}
+
+#stats{
+    display: flex;
+    flex-flow: column;
+}
